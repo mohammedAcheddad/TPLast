@@ -21,14 +21,6 @@ Schema.plugin(autoIncrement.plugin, { model: 'Questions', field: 'id', startAt: 
 
 const Question=mongoose.model("Questions",Schema)
 
-Question.updateOne({}, { $set: { id: 0 } }, { upsert: true }, function(err, response) {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log("Counter reset");
-    }
-});
-
 const Qrouter = express.Router();
 
 Qrouter.post("",async (req,res)=>{
@@ -51,11 +43,10 @@ Qrouter.post("",async (req,res)=>{
 })
 
 Qrouter.put("/:idQuestion",async (req,res)=>{
-    
     let idQuestion = req.params.idQuestion
     const Nresponse = req.body.response
     try{
-	let myQuestion = await Question.findOne({id:idQuestion})
+	let myQuestion = await Question.findOne({_id:idQuestion})
     if(!myQuestion)
         throw ("not allowed sorry")
         

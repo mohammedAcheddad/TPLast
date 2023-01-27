@@ -39,6 +39,34 @@ export const deleteMemo = (id) => {
         console.log(err)
     })
 }
+export const switchDiv = (id,response) => {
+
+    fetch(url+"/Questions/"+id,{
+        method:"PUT",
+        body:JSON.stringify(response)
+    }).then(res=>{
+        if(res.ok)
+        {
+            
+            if(response==="true"){
+                a = document.getElementById(id);
+                a.classList.remove("false")
+                a.classList.add("true")
+            }
+            else{
+                a = document.getElementById(id);
+                a.classList.remove("true")
+                a.classList.add("false")
+            } 
+        }
+        else
+            alert("error")
+    })
+    .catch(err=>{
+        alert("erreur")
+        console.log(err)
+    })
+}
 
 
 function parse(item,body,i){
@@ -68,7 +96,11 @@ function parse(item,body,i){
     questionDiv.appendChild(deleteButton);
     let switchButton = document.createElement("button");
     switchButton.addEventListener('click', ()=>{
-        switchDiv(questionDiv.id)
+        if (item.response === "true") {
+            switchDiv(questionDiv.id,"false")
+        } else {
+            switchDiv(questionDiv.id,"true")
+        }
     })
     switchButton.classList.add("switch");
     switchButton.innerHTML = "switch";
