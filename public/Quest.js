@@ -1,6 +1,6 @@
 const alo = document.getElementById("RR");
-const url = "http://localhost:3000"
-export const addMemo = (content,response) => {
+const url = "http://localhost:30000"
+export const addMemo = (content,response,i) => {
     const dataToSend = {content,response}
     fetch(url+"/Questions",{
         method:"POST",
@@ -13,7 +13,7 @@ export const addMemo = (content,response) => {
         {   
         res.json().then(data=>{
             const {dataQ} = data;
-            parse(dataQ,alo)
+            parse(dataQ,alo,i)
         })
 
         }
@@ -23,10 +23,28 @@ export const addMemo = (content,response) => {
     })
     .catch(err=>console.log(err));
 }
+export const deleteMemo = (id) => {
+    fetch(url+"/Questions/"+id,{
+        method:"DELETE"
+    }).then(res=>{
+        if(res.ok)
+        {
+            document.getElementById(id).remove();
+        }
+        else
+            alert("error")
+    })
+    .catch(err=>{
+        alert("erreur")
+        console.log(err)
+    })
+}
 
-function parse(item,body){
+
+function parse(item,body,i){
     console.log(item)
     let questionDiv = document.createElement("div");
+    questionDiv.id = item._id
     questionDiv.classList.add("question");
     if (item.response === "true") {
         questionDiv.classList.add("true");
@@ -35,21 +53,25 @@ function parse(item,body){
     }
     let idSpan = document.createElement("span");
     idSpan.classList.add("idQuestion");
-    idSpan.innerHTML = item.id;
+    idSpan.innerHTML = i;
     questionDiv.appendChild(idSpan);
     let contentDiv = document.createElement("div");
     contentDiv.classList.add("content");
     contentDiv.innerHTML = item.content;
     questionDiv.appendChild(contentDiv);
     let deleteButton = document.createElement("button");
+    deleteButton.addEventListener('click', ()=>{
+        deleteMemo(questionDiv.id)
+    })
     deleteButton.classList.add("delete");
     deleteButton.innerHTML = "delete";
     questionDiv.appendChild(deleteButton);
     let switchButton = document.createElement("button");
+    switchButton.addEventListener('click', ()=>{
+        switchDiv(questionDiv.id)
+    })
     switchButton.classList.add("switch");
     switchButton.innerHTML = "switch";
     questionDiv.appendChild(switchButton);
     body.appendChild(questionDiv);
-
-
 }

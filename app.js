@@ -17,7 +17,7 @@ mongoose.connect
 
 app.use("/Questions",Qrouter)
 
-app.listen(3000, (err)=>{
+app.listen(30000, (err)=>{
     if (err) console.log(err)
     console.log('listening on port 3000')
 })

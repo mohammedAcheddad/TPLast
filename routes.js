@@ -76,7 +76,7 @@ Qrouter.delete("/:idQuestion",async (req,res)=>{
     
     let idQuestion = req.params.idQuestion
     try{
-	const myQuestion = await Question.findOne({id:idQuestion})
+	const myQuestion = await Question.findOne({_id:idQuestion})
     if(!myQuestion)
         throw ("not allowed sorry")
         
