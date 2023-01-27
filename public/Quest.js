@@ -47,14 +47,14 @@ export const switchDiv = (id,response) => {
     }).then(res=>{
         if(res.ok)
         {
-            
+            let a = document.getElementById(id);
             if(response==="true"){
-                a = document.getElementById(id);
+                
                 a.classList.remove("false")
                 a.classList.add("true")
             }
             else{
-                a = document.getElementById(id);
+                
                 a.classList.remove("true")
                 a.classList.add("false")
             } 
