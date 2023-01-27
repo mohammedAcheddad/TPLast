@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exam uemf 2023 - node js & vanilla js</title>
     <link rel="stylesheet" href="css/main.css">
+    <script  type="module" src="main.js"> </script>
+    <script  type="module" src="Quest.js"> </script>
 </head>
 
 <body>
@@ -21,14 +23,14 @@
                 New Question:
             </h2>
             <div class="form">
-                <input placeholder="question">
-                <select>
+                <input id="input"   placeholder="question">
+                <select id="select">
                     <option value="true">true</option>
                     <option value="false">false</option>
                 </select>
                 <div class="controls">
                     <button class="reset">reset</button>
-                    <button class="submit">submit</button>
+                    <button class="submit" id="submit">submit</button>
                 </div>
             </div>
         </article>
@@ -36,119 +38,9 @@
             <h2>
                 Questions (14)
             </h2>
-            <div class="questions">
-                <div class="question true">
-                    <span class="idQuestion">1</span>
-                    <div class="content">
-                        NodeJs is a javascript runtime environment
-                    </div>
-                    <button class="delete">delete</button>
-                    <button class="switch">switch</button>
-                </div>
-                <div class="question false">
-                    <span class="idQuestion">2</span>
-                    <div class="content">
-                        The earth is flat
-                    </div>
-                    <button class="delete">delete</button>
-                    <button class="switch">switch</button>
-                </div>
-                <div class="question true">
-                    <span class="idQuestion">3</span>
-                    <div class="content">
-                        NodeJs is a javascript runtime environment
-                    </div>
-                    <button class="delete">delete</button>
-                    <button class="switch">switch</button>
-                </div>
-                <div class="question false">
-                    <span class="idQuestion">4</span>
-                    <div class="content">
-                        The earth is flat
-                    </div>
-                    <button class="delete">delete</button>
-                    <button class="switch">switch</button>
-                </div>
-                <div class="question true">
-                    <span class="idQuestion">5</span>
-                    <div class="content">
-                        NodeJs is a javascript runtime environment
-                    </div>
-                    <button class="delete">delete</button>
-                    <button class="switch">switch</button>
-                </div>
-                <div class="question false">
-                    <span class="idQuestion">6</span>
-                    <div class="content">
-                        The earth is flat
-                    </div>
-                    <button class="delete">delete</button>
-                    <button class="switch">switch</button>
-                </div>
-                <div class="question true">
-                    <span class="idQuestion">7</span>
-                    <div class="content">
-                        NodeJs is a javascript runtime environment
-                    </div>
-                    <button class="delete">delete</button>
-                    <button class="switch">switch</button>
-                </div>
-                <div class="question false">
-                    <span class="idQuestion">8</span>
-                    <div class="content">
-                        The earth is flat
-                    </div>
-                    <button class="delete">delete</button>
-                    <button class="switch">switch</button>
-                </div>
-                <div class="question true">
-                    <span class="idQuestion">9</span>
-                    <div class="content">
-                        NodeJs is a javascript runtime environment
-                    </div>
-                    <button class="delete">delete</button>
-                    <button class="switch">switch</button>
-                </div>
-                <div class="question false">
-                    <span class="idQuestion">10</span>
-                    <div class="content">
-                        The earth is flat
-                    </div>
-                    <button class="delete">delete</button>
-                    <button class="switch">switch</button>
-                </div>
-                <div class="question true">
-                    <span class="idQuestion">11</span>
-                    <div class="content">
-                        NodeJs is a javascript runtime environment
-                    </div>
-                    <button class="delete">delete</button>
-                    <button class="switch">switch</button>
-                </div>
-                <div class="question false">
-                    <span class="idQuestion">12</span>
-                    <div class="content">
-                        The earth is flat
-                    </div>
-                    <button class="delete">delete</button>
-                    <button class="switch">switch</button>
-                </div>
-                <div class="question true">
-                    <span class="idQuestion">13</span>
-                    <div class="content">
-                        NodeJs is a javascript runtime environment
-                    </div>
-                    <button class="delete">delete</button>
-                    <button class="switch">switch</button>
-                </div>
-                <div class="question false">
-                    <span class="idQuestion">14</span>
-                    <div class="content">
-                        The earth is flat
-                    </div>
-                    <button class="delete">delete</button>
-                    <button class="switch">switch</button>
-                </div>
+            <div id="RR" class="questions">
+                
+                
             </div>
         </article>
     </main>
